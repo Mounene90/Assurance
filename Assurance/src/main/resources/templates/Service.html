@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Service</title>
+<link rel="stylesheet" type="text/css"
+	href="../static/css/bootstrap.min.css"
+
+	th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+
+<div class="spacer col-md-5" layout:fragment="content">
+            <div class="panel panel-default" style="margin-bottom: 10%;margin-top: 3%;margin-left: 60%;margin-right: 10%;width: 100%">
+                <div  class="panel-heading">Ajouter un Assure</div>
+                        <div class="panel-body">
+				<form th:action="@{saveservice}" method="post"  class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="typeService"><h10>TypeService</h10>:</label> 
+                                                <div class="col-sm-10">
+                                                <input class="form-control" style="padding: 4%" id="typeService" placeholder="typeService"
+							 type="text" name="typeService"
+							 /> 
+					</div>
+                                        </div>
+					
+					
+					
+					<div>
+						<button type="submit" class="btn btn-primary" style="text-align:center;margin-left: 50% ">Enregistrer</button>
+						<button type="reset" class="btn btn-primary">Annuler</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+   
+</body>
+</html>

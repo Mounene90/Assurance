@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Habitation</title>
+<link rel="stylesheet" type="text/css"
+	href="../static/css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+	<div class="spacer col-md-5" layout:fragment="content">
+		<div class="panel panel-default" style="margin-bottom: 10%;margin-top: 3%;margin-left: 60%;margin-right: 10%;width: 100%">
+			<div class="panel-heading">Habitation</div>
+			<div class="panel-body">
+				<form th:action="@{savehabitation}" method="post" modelAttribut="habitation" class="form-horizontal">
+				    <!-- <div class="form-group">
+                                             <label class="control-label col-sm-2" for="service">Service:</label>
+                                             <div class="col-sm-10">
+			      			<select class="form-control" id="service" name="service">
+			      				<option label="Service" value="1"></option>
+			      				<option th:each="s:${service}" th:text="${s.typeService}" th:value="${s.idService}"></option>
+			      			</select>
+                                             </div>   
+			      		 </div> -->
+			      		  <div class="form-group">
+						<label class="control-label col-sm-2" for="referenceservice">Reference:</label> 
+                                <div class="col-sm-10">
+                                     <input class="form-control" id="referenceservice" placeholder="referenceservice"
+													type="text" name="referenceservice"/>
+                                 </div>
+                     </div>    
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="superficie">Superficie:</label> 
+                                                <div class="col-sm-10">
+                                                <input class="form-control" id="superficie" placeholder="superficie"
+							type="text" name="superficie"
+							th:value="${habitation.superficie}" /> <span class="red"
+							th:errors="${habitation.superficie}"></span>
+                                                </div>
+                                        </div>       
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="adresse" >Adresse:</label>
+                                                <div class="col-sm-10">
+                                                <input class="form-control" id="adresse" placeholder="adresse"
+							type="text"  name="adresse" 
+							th:value="${habitation.adresse}" /> <span class="red"
+							th:errors="${habitation.adresse}"></span>
+                                                </div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="mtnAcquisition">Montant:</label>
+                                                <div class="col-sm-10">
+                                                <input class="form-control" id="mtnAcquisition" placeholder="mtnAcquisition"
+							type="text" name="mtnAcquisition" 
+							th:value="${habitation.mtnAcquisition}" /><span class="red"
+							th:errors="${habitation.mtnAcquisition}"></span>
+                                                </div>
+
+					</div>
+					 
+
+					<div class="form-group">
+                                            
+						<label class="control-label col-sm-2" for="typeBatiment">TypeBatiment:</label>
+                                                <div class="col-sm-10">
+                                                <input class="form-control" id="typeBatiment" placeholder="typeBatiment"
+                                                        type="text" name="typeBatiment"
+							th:value="${habitation.typeBatiment}" /> <span class="red"
+							th:errors="${habitation.typeBatiment}"></span>
+                                                </div>
+					</div>
+					
+					<div class="form-group">
+                                            
+						<label class="control-label col-sm-2" for="nbrePiece">Nombre_piece:</label>
+                                                <div class="col-sm-10">
+                                                <input class="form-control" id="nbrePiece" placeholder="nbrePiece"
+                                                        type="text" name="nbrePiece"
+							th:value="${habitation.nbrePiece}" /> <span class="red"
+							th:errors="${habitation.nbrePiece}"></span>
+                                                </div>
+					</div>
+                                         
+					<div>
+						<button type="submit" class="btn btn-primary" style="text-align:center;margin-left: 50% ">Enregistrer</button>
+						<button type="reset" class="btn btn-primary">Annuler</button>
+					</div>
+					
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+
+

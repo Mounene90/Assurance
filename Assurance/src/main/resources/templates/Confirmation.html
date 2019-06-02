@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css"
+	href="../static/css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="container">
+			<div class="panel panel-default">
+				<div class="panel-heading">Confirmation</div>
+				<div class="panel-body">
+					<div class="form-group">
+						<label>NOm:</label> <label
+							th:text="${assure.nomAssure}"></label>
+					</div>
+					<div class="form-group">
+						<label>Prenom:</label> <label th:text="${assure.prenomAssure}"></label>
+					</div>
+					<div class="form-group">
+						<label>Adresse:</label> <label
+							th:text="${assure.adresseAssure}"></label>
+					</div>
+					<div class="form-group">
+						<label>LargeurNavire:</label> <label
+							th:text="${assure.telephone}"></label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
