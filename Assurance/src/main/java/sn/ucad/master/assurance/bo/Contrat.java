@@ -64,7 +64,6 @@ public class Contrat  implements java.io.Serializable {
     }
     
     
-	
     public Contrat(int idContrat, Assure assure, Apporteur apporteur, Service service, Souscripteur souscripteur,
 			String referance, String dateCreation, String dateDebut, String dateFin, Integer duree,
 			Collection<Detail> details, Collection<Avenant> avenants, Collection<Prime> primes) {
