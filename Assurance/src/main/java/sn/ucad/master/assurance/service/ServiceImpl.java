@@ -3,6 +3,8 @@ package sn.ucad.master.assurance.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,6 +31,16 @@ public class ServiceImpl implements IService{
 		Service service= (Service) serviceRepository.findOne(idService);
 		if(service==null) throw new RuntimeException("Service introuvable");
 		return (sn.ucad.master.assurance.bo.Service) service;
+	}
+	@Override
+	public Page<sn.ucad.master.assurance.bo.Service> chercherSouscripteur(String mc, Pageable pageable) {
+		// TODO Auto-generated method stub
+		return serviceRepository.chercherservice(mc, pageable);
+	}
+	@Override
+	public sn.ucad.master.assurance.bo.Service findServiceById(int Idservice) {
+		// TODO Auto-generated method stub
+		return serviceRepository.findOne(Idservice);
 	}
 	
 	

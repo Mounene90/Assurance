@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 import sn.ucad.master.assurance.bo.Service;
 
 public interface ServiceRepository extends JpaRepository<Service, Integer> {
-	/*@Query("select s from Service s where s.T like :x")
-	public Page<Service> cherchercon(@Param("x")String mc,Pageable pageable);*/
+	@Query("select s from Service s where s.referenceservice like :x")
+	public Page<Service> chercherservice(@Param("x")String mc,Pageable pageable);
 
 }
