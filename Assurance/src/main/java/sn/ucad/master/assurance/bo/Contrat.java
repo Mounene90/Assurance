@@ -3,6 +3,7 @@ package sn.ucad.master.assurance.bo;
 
 
 import java.util.Collection;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -45,7 +46,7 @@ public class Contrat  implements java.io.Serializable {
      private Souscripteur souscripteur;
 	 @Column(name="referance", nullable=false, length=30)
      private String referance;
-	 @Column(name="Date_creation", nullable=false, length=19)
+	@Column(name="Date_creation", nullable=false, length=19)
      private String dateCreation;
 	 @Column(name="Date_debut", nullable=false, length=19)
      private String dateDebut;
