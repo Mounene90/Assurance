@@ -39,4 +39,24 @@ public class ApporteurServiceImpl implements IApporteurService {
 		return apporteurRepository.findAll();
 	}
 
+	@Override
+	public void addApporteur(Apporteur apporteur) {
+		// TODO Auto-generated method stub
+		apporteurRepository.save(apporteur);
+		
+	}
+
+	@Override
+	public void deleteApporteur(String code) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateApporteur(Apporteur apporteur) {
+		// TODO Auto-generated method stub
+		apporteurRepository.saveAndFlush(apporteur);
+		
+	}
+
 }
