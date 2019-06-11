@@ -57,8 +57,8 @@ public class SouscripteurController {
 	
 	@RequestMapping(value = "/editupdate", method = RequestMethod.GET)
 	public String editupdate(Model model, Integer idSouscripeur) {
-		Souscripteur s = souscripteurService.findSouscripteurById(idSouscripeur);
-		model.addAttribute("souscripteur", s);
+		Souscripteur sous = souscripteurService.findSouscripteurById(idSouscripeur);
+		model.addAttribute("souscripteur", sous);
 		return "EditSouscripteur";
 	}
 
