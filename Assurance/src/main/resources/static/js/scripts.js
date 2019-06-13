@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 function CalculeBC()
 {
     var varDate=null;
@@ -7,7 +10,6 @@ function CalculeBC()
     var valeur_neuve=document.getElementById('val_neuve').value;
     var genre_v=document.getElementById('categorie').value;
     var mois =document.getElementById('duree').value;
-    
-    document.getElementById("nomAssure").value=document.getElementById("nomSouscripteur").value;
-    document.getElementById("prenomAssure").value=document.getElementById("prenomSouscripteur").value;
+    document.getElementById('nomAssur').value=document.getElementById('nomSouscripteur').value;
+    document.getElementById('prenomAssure').value=document.getElementById('prenomSouscripteur').value;
 }

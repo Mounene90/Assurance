@@ -19,7 +19,7 @@
                                              <div class="col-sm-10">
 			      			<select class="form-control" id="contrat" name="contrat">
 			      				<option label="Contrat" value="1"></option>
-			      				<option th:each="s:${contrat}" th:text="${c.referance}" th:value="${c.idContrat}"></option>
+			      				<option th:each="c:${contrat}" th:text="${c.referance}" th:value="${c.idContrat}"></option>
 			      			</select>
                                              </div>   
 			      		 </div>
@@ -31,6 +31,40 @@
 			      				<option label="Garantie" value="1"></option>
 			      				<option th:each="g:${garantie}" th:text="${g.libelleGarantie}" th:value="${g.idGarantie}"></option>
 			      			</select>
+                                             </div>   
+			      		 </div>
+					
+					
+					<div class="form-group">
+                                             <label class="control-label col-sm-2" for="detail">Prime_Prorata:</label>
+                                             <div class="col-sm-10">
+                                              <input class="form-control" style="padding: 4%" id="primeBruteProrata" placeholder="primeBruteProrata"
+							 type="text" name="primeBruteProrata"  onchange="CalculeBC()"
+							th:value="${detail.primeBruteProrata}" /> <span class="red"
+							th:errors="${detail.primeBruteProrata}"></span>
+			      			
+                                             </div>   
+			      		 </div>
+			      		 
+			      		 <div class="form-group">
+                                             <label class="control-label col-sm-2" for="detail">Montant_Limite:</label>
+                                             <div class="col-sm-10">
+                                              <input class="form-control" style="padding: 4%" id="mtnLimite" placeholder="mtnLimite"
+							 type="text" name="mtnLimite"  onchange="CalculeBC()"
+							th:value="${detail.mtnLimite}" /> <span class="red"
+							th:errors="${detail.mtnLimite}"></span>
+			      			
+                                             </div>   
+			      		 </div>
+			      		 
+			      		 <div class="form-group">
+                                             <label class="control-label col-sm-2" for="detail">Montant_Fran:</label>
+                                             <div class="col-sm-10">
+                                              <input class="form-control" style="padding: 4%" id="mtnFranchise" placeholder="Montant_Franchise"
+							 type="text" name="mtnFranchise"  onchange="CalculeBC()"
+							th:value="${detail.mtnFranchise}" /> <span class="red"
+							th:errors="${detail.mtnFranchise}"></span>
+			      			
                                              </div>   
 			      		 </div>
 					

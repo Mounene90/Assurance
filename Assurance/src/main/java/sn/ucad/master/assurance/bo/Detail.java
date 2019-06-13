@@ -32,7 +32,7 @@ public class Detail  implements java.io.Serializable {
 	 @JoinColumn(name="Id_contrat")
      private Contrat contrat;
 	 @ManyToOne(fetch=FetchType.LAZY)
-	    @JoinColumn(name="Id_garantie")
+	 @JoinColumn(name="Id_garantie")
      private Garantie garantie;
 	 @Column(name="Prime_brute_prorata")
      private Integer primeBruteProrata;

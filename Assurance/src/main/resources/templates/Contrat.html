@@ -84,7 +84,7 @@
                                              <div class="col-sm-10">
 			      			<select class="form-control" id="apporteur" name="apporteur">
 			      				<option label="Apporteur" value="1"></option>
-			      				<option th:each="ap:${apporteur}" th:text="${ap.prenomApp} + ${ap.nomApp}" th:value="${ap.codeApp}"></option>
+			      				<option th:each="ap:${apporteur}" th:text="${ap.prenomApp+ ' ' +ap.nomApp}" th:value="${ap.codeApp}"></option>
 			      			</select>
                                              </div>   
 			      		 </div>
@@ -94,7 +94,7 @@
                                              <div class="col-sm-10">
 			      			<select class="form-control" id="souscripteur" name="souscripteur">
 			      				<option label="Souscripteur" value="1"></option>
-			      				<option th:each="s:${souscripteur}" th:text="${s.prenomSouscripteur} + ${s.nomSouscripteur}" th:value="${s.idSouscripeur}"></option>
+			      				<option th:each="s:${souscripteur}" th:text="${s.prenomSouscripteur+ ' ' +s.nomSouscripteur}" th:value="${s.idSouscripeur}"></option>
 			      			</select>
                                              </div>   
 			      		 </div>
@@ -103,7 +103,7 @@
                                              <div class="col-sm-10">
 			      			<select class="form-control" id="assure" name="assure">
 			      				<option label="Assure" value="1"></option>
-			      				<option th:each="a:${assure}" th:text="${a.prenomAssure}+${a.nomAssure}" th:value="${a.idAssure}"></option>
+			      				<option th:each="a:${assure}" th:text="${a.prenomAssure+ ' ' +a.nomAssure}" th:value="${a.idAssure}"></option>
 			      			</select>
                                              </div>
 			      		 </div>
