@@ -237,6 +237,16 @@ public class Contrat  implements java.io.Serializable {
 	}
 
 
+	public Apporteur getApporteur() {
+		return apporteur;
+	}
+
+
+	public void setApporteur(Apporteur apporteur) {
+		this.apporteur = apporteur;
+	}
+
+
     
 
 
