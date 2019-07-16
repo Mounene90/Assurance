@@ -26,11 +26,13 @@ public class SouscripteurController {
 	public String cherchers(Model model, @RequestParam(name = "page", defaultValue = "0") int p,
 			@RequestParam(name = "size", defaultValue = "5") int s,
 			@RequestParam(name = "mc", defaultValue = "") Integer mc) {
-		Page<Souscripteur> pagesouscripteur = souscripteurService.chercherSouscripteur(mc,new PageRequest(p,s));
+		Page<Souscripteur> pagesouscripteur =null;
+		if(mc==null)
+			 pagesouscripteur=souscripteurService.findAllPageSouscripteur(p, s);
+			
 		/* navireRepository.chercher("%"+mc+"%",new PageRequest(p, s)); */
-		
-		 /*Page<Souscripteur>
-		 pagesouscripteur=souscripteurService.findAllPageSouscripteur(p, s);*/
+		else
+			pagesouscripteur = souscripteurService.chercherSouscripteur(mc,new PageRequest(p,s));
 		 
 		model.addAttribute("listSouscripteurs", pagesouscripteur.getContent());
 		/* model.addAttribute("listSouscripteurs", pagesouscripteurs.getContent()); */

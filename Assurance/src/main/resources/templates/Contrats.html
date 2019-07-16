@@ -29,10 +29,10 @@
 				<table class="table table-hover">
 					<thead>
 						<tr>
-							<th>Reference</th>
+							<!-- <th>Reference</th> -->
 							<th>Date_debut</th>
 							<th>Date_fin</th>
-							<th>Service</th>
+							<!-- <th>Service</th> -->
 							<th>Assure</th>
 							<th>Souscripteur</th>
 
@@ -41,10 +41,10 @@
 					<tbody>
 					</tbody>
 					<tr th:each="c:${listContrats}">
-						<td th:text="${c.referance}"></td>
+						<!-- <td th:text="${c.referance}"></td> -->
 						<td th:text="${c.dateDebut}"></td>
 						<td th:text="${c.dateFin}"></td>
-						<td th:text="${c.service.typeService}"></td>
+					     <!-- <td th:text="${c.vehicule.typeService}"></td> -->
 						<td th:text="${c.assure.prenomAssure}+${c.assure.nomAssure}"></td>
 						<td th:text="${c.souscripteur.prenomSouscripteur}+${c.souscripteur.nomSouscripteur}"></td>
 						<td><a

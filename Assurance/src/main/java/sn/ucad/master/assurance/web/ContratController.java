@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import sn.ucad.master.assurance.bo.Contrat;
-import sn.ucad.master.assurance.bo.Service;
-import sn.ucad.master.assurance.bo.Vehicule;
 import sn.ucad.master.assurance.service.IApporteurService;
 import sn.ucad.master.assurance.service.IAssureService;
 import sn.ucad.master.assurance.service.IContratService;
@@ -38,12 +36,13 @@ public class ContratController {
 	public String cherchersContrats(Model model, @RequestParam(name = "page", defaultValue = "0") int p,
 			@RequestParam(name = "size", defaultValue = "5") int s,
 			@RequestParam(name = "mc", defaultValue = "") String mc) {
-		Page<Contrat> pagecontrat = contratService.chercherContrats("%"+mc+"%", new PageRequest(p,s));
-		/* navireRepository.chercher("%"+mc+"%",new PageRequest(p, s)); */
-		/*
-		 * Page<Souscripteur>
-		 * pagesouscripteurs=souscripteurService.chercherSouscripteur(mc, p, s);
-		 */
+		    /*Page<Contrat> pagecontrat =null;*/
+		
+		
+		/*if(mc==null)
+			pagecontrat=contratService.findAllPageContrat(p, s);
+			else*/
+		Page<Contrat> pagecontrat= contratService.chercherContrats("%"+mc+"%", new PageRequest(p,s));
 		model.addAttribute("listContrats", pagecontrat.getContent());
 		/* model.addAttribute("listSouscripteurs", pagesouscripteurs.getContent()); */
 		int[] pages = new int[pagecontrat.getTotalPages()];
