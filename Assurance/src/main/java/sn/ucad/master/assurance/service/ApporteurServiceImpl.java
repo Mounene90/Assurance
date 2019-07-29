@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,13 +26,13 @@ public class ApporteurServiceImpl implements IApporteurService {
 	@Override
 	public Page<Apporteur> findAllPageApporteur(int page, int size) {
 		// TODO Auto-generated method stub
-		return null;
+		return apporteurRepository.findAll(new PageRequest(page, size));
 	}
 
 	@Override
 	public Apporteur findApporteurById(String code_App) {
 		// TODO Auto-generated method stub
-		return null;
+		return apporteurRepository.findOne(code_App);
 	}
 
 	@Override
@@ -57,6 +59,12 @@ public class ApporteurServiceImpl implements IApporteurService {
 		// TODO Auto-generated method stub
 		apporteurRepository.saveAndFlush(apporteur);
 		
+	}
+
+	@Override
+	public Page<Apporteur> chercherApporteur(String mc, Pageable pageable) {
+		// TODO Auto-generated method stub
+		return apporteurRepository.chercher(mc, pageable);
 	}
 
 }

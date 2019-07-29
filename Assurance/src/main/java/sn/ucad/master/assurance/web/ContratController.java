@@ -33,16 +33,16 @@ public class ContratController {
 	private IApporteurService apporteurService;
 	
 	@RequestMapping(value = "/consulterContrat")
-	public String cherchersContrats(Model model, @RequestParam(name = "page", defaultValue = "0") int p,
+	public String index5(Model model, @RequestParam(name = "page", defaultValue = "0") int p,
 			@RequestParam(name = "size", defaultValue = "5") int s,
 			@RequestParam(name = "mc", defaultValue = "") String mc) {
-		    /*Page<Contrat> pagecontrat =null;*/
+		    Page<Contrat> pagecontrat =null;
 		
 		
-		/*if(mc==null)
+		if(mc==null)
 			pagecontrat=contratService.findAllPageContrat(p, s);
-			else*/
-		Page<Contrat> pagecontrat= contratService.chercherContrats("%"+mc+"%", new PageRequest(p,s));
+			else
+		       pagecontrat= contratService.chercherContrats("%"+mc+"%", new PageRequest(p,s));
 		model.addAttribute("listContrats", pagecontrat.getContent());
 		/* model.addAttribute("listSouscripteurs", pagesouscripteurs.getContent()); */
 		int[] pages = new int[pagecontrat.getTotalPages()];
@@ -50,6 +50,7 @@ public class ContratController {
 		model.addAttribute("size", s);
 		model.addAttribute("pageCourante", p);
 		model.addAttribute("mc", mc);
+		/*return "Contrat";*/
 		return "Contrats";
 	}
 	@RequestMapping(value="/formcontrat",method=RequestMethod.GET)

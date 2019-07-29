@@ -16,7 +16,7 @@
 
 	<div layout:fragment="content">
 		<div class="col-md-6">
-			<div class="panel panel-primary">
+			<div class="panel panel-primary" style="margin-bottom: 10%;margin-top: 3%;margin-left: 60%;margin-right: 10%;width: 100%">
 				<div class="panel panel-heading">Ajouter un Assure</div>
 				<div class="panel-body">
 					<form th:action="@{save}" method="post" modelAttribut="assure"
@@ -26,7 +26,7 @@
 							<div class="col-sm-10">
 								<input class="form-control" style="padding: 4%" id="nomAssure"
 									placeholder="nomAssure" type="text" name="nomAssure"
-									onclick="CalculeBC()" th:value="${assure.nomAssure}" /> <span
+									onchange="CalculeBC()" th:value="${assure.nomAssure}" /> <span
 									class="red" th:errors="${assure.nomAssure}"></span>
 							</div>
 						</div>
@@ -69,69 +69,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-6">
-			<div class="panel panel-primary">
-				<div class="pannel panel-heading">Ajouter un Souscripteur</div>
-				<div class="panel-body">
-					<form th:action="@{savesouscripteur}" method="post"
-						modelAttribut="souscripteur" class="form-horizontal">
-						<div class="form-group">
-							<label class="control-label col-sm-2" for="nomSouscripteur"><h10>Nom</h10>:</label>
-							<div class="col-sm-10">
-								<input class="form-control" style="padding: 4%"
-									id="nomSouscripteur" placeholder="nomSouscripteur" type="text"
-									name="nomSouscripteur" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-sm-2" for="prenomAssure">Prenom:</label>
-							<div class="col-sm-10">
-								<input class="form-control" style="padding: 4%"
-									id="prenomSouscripteur" placeholder="prenomSouscripteur"
-									onchange="CalculeBC()" type="text" name="prenomSouscripteur" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-sm-2" for="adresseAssure">Adresse:</label>
-							<div class="col-sm-10">
-								<input class="form-control" id="adresseSouscripteur"
-									style="padding: 4%" placeholder="adresseSouscripteur"
-									type="text" name="adresseSouscripteur" />
-
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-sm-2" for="telephone">Telephone:
-							</label>
-							<div class="col-sm-10">
-								<input class="form-control" id="telephoneSouscripteur"
-									style="padding: 4%" placeholder="telephoneSouscripteur"
-									type="text" name="telephoneSouscripteur" />
-
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label class="control-label col-sm-2" for="adresseMail">Mail:
-							</label>
-							<div class="col-sm-10">
-								<input class="form-control" id="adresseMail" style="padding: 4%"
-									placeholder="adresseMail" type="mail" name="adresseMail" />
-
-							</div>
-						</div>
-
-
-						<div>
-							<button type="submit" class="btn btn-primary"
-								style="text-align: center; margin-left: 50%">Enregistrer</button>
-							<button type="reset" class="btn btn-primary">Annuler</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-6">
+		
+		<!-- <div class="col-md-6">
 		 <div class="panel panel-primary">
 		 <div class="pannel panel-heading">Liste Souscripteur</div>
 		 <div class="panel-body">
@@ -143,9 +82,9 @@
 		 <div class="pannel panel-heading">Liste Assure</div>
 		 <div class="panel-body">
 		 </div>
+		 </div> -->
 		 </div>
-		 </div>
-	</div>
+	
 
 </body>
 </html>

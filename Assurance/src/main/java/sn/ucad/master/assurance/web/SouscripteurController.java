@@ -21,7 +21,7 @@ public class SouscripteurController {
 	@Autowired
 	private ISouscripteurService souscripteurService;
 
-	@RequestMapping(value = "/index")
+	@RequestMapping(value = "/listsSouscripteur")
 	/*@GetMapping("/index")*/
 	public String cherchers(Model model, @RequestParam(name = "page", defaultValue = "0") int p,
 			@RequestParam(name = "size", defaultValue = "5") int s,
@@ -41,7 +41,7 @@ public class SouscripteurController {
 		model.addAttribute("size", s);
 		model.addAttribute("pageCourante", p);
 		model.addAttribute("mc", mc);
-		return "Souscripteurs";
+		return "Souscripteur";
 	}
 
 	@RequestMapping(value = "/formsouscripteur", method = RequestMethod.GET)
@@ -61,7 +61,8 @@ public class SouscripteurController {
 	public String editupdate(Model model, Integer idSouscripeur) {
 		Souscripteur sous = souscripteurService.findSouscripteurById(idSouscripeur);
 		model.addAttribute("souscripteur", sous);
-		return "EditSouscripteur";
+		return "Souscripteur";
+		/*return "EditSouscripteur";*/
 	}
 
 	@RequestMapping(value = "/savesouscripteur", method = RequestMethod.POST)
