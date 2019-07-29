@@ -1,0 +1,6 @@
+/**
+ * 
+ */
+function ok(){
+	alert('ok');
+}

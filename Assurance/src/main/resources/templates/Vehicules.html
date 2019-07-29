@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Vehicule</title>
+<link rel="stylesheet" type="text/css"
+	href="../static/css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+	<div layout:fragment="content">
+	<!-- <div class="col-md-6">
+			<div class="panel panel-primary">
+		<div class="panel panel-default" style="margin-bottom: 10%;margin-top: 3%;margin-left: 60%;margin-right: 10%;width: 150%">
+			<div class="panel panel-heading">Vehicule</div>
+			<div class="panel-body">
+				<form th:action="@{saveVehicule}" method="post" class="form-horizontal">
+				    <div class="form-group">
+                                             <label class="control-label col-sm-2" for="service">Service:</label>
+                                             <div class="col-sm-10">
+			      			<select class="form-control" id="service" name="service">
+			      				<option label="Service" value="1"></option>
+			      				<option th:each="s:${service}" th:text="${s.typeService}" th:value="${s.idService}"></option>
+			      			</select>
+                                             </div>   
+			      		 </div>
+			      		 <div class="form-group">
+						<label class="control-label col-sm-2" for="referenceservice">Reference:</label> 
+                                <div class="col-sm-10">
+                                     <input class="form-control" id="referenceservice" placeholder="referenceservice"
+													type="text" name="referenceservice"/>
+                                 </div>
+                     </div>    
+			      		 <div class="form-group">
+                                             <label class="control-label col-sm-2" for="categorie">Categorie:</label>
+                                             <div class="col-sm-10">
+			      			<select class="form-control" id="categorie" name="categorie">
+			      				<option label="Categorie" value="1"></option>
+			      				<option th:each="c:${categorie}" th:text="${c.libelle}" th:value="${c.idCategorie}"></option>
+			      			</select>
+                                             </div>   
+			      		 </div>
+			      		 
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="matricule">Matricule:</label> 
+                                <div class="col-sm-10">
+                                     <input class="form-control" id="matricule" placeholder="matricule"
+													type="text" name="matricule"/>
+                                 </div>
+                     </div>       
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="marque" >Marque:</label>
+                                     <div class="col-sm-10">
+                                           <input class="form-control" id="marque" placeholder="marque"
+												type="text"  name="marque" /> 
+                                     </div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="puissance">Puissance:</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" id="puissance" placeholder="puissance"
+							                     type="text" name="puissance" />
+                                             </div>
+
+					</div>
+					 
+
+					<div class="form-group">
+                                            
+						<label class="control-label col-sm-2" for="energie">Energie:</label>
+                                                <div class="col-sm-10">
+                                                <input class="form-control" id="energie" placeholder="energie" type="text" name="energie" />
+                                                <select class="form-control" id="energie" name="energie"  style="height: 30%;font-size: 15px;font-family: Times New Roman;">
+                                                    <option value="N/A">Energie&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                                                    <option value="essence">Essence</option>
+                                                    <option value="diesel">Diesel</option>
+                                                </select>
+                                                </div>
+					</div>
+					
+					<div class="form-group">
+                                            
+						<label class="control-label col-sm-2" for="nbrePlace">Nombre_Place:</label>
+                                    <div class="col-sm-10">
+                                         <input class="form-control" id="nbrePlace" placeholder="nbrePlace" type="text" name="nbrePlace" /> 
+                                    </div>
+					</div>
+					
+					<div class="form-group">
+                                            
+						<label class="control-label col-sm-2" for="dateMiseCirculation">MEC:</label>
+                                    <div class="col-sm-10">
+                                         <input class="form-control" id="dateMiseCirculation" placeholder="dateMiseCirculation" type="date" name="dateMiseCirculation" /> 
+                                    </div>
+					</div>
+					
+					<div class="form-group">
+                                            
+						<label class="control-label col-sm-2" for="modele">Modele:</label>
+                                    <div class="col-sm-10">
+                                         <input class="form-control" id="modele" placeholder="modele" type="text" name="modele" /> 
+                                    </div>
+					</div>
+					
+					<div class="form-group">
+                                            
+						<label class="control-label col-sm-2" for="chargeUtile">Charge_Utile:</label>
+                                    <div class="col-sm-10">
+                                         <input class="form-control" id="chargeUtile" placeholder="chargeUtile" type="text" name="chargeUtile" /> 
+                                        <select class="form-control" id="chargeUtile" name="chargeUtile">
+                                                        <option value="N/A">Charge Utile</option>
+                                                        <option value="Break">Break</option>
+                                                        <option value="Moins de 3,5T">Moins de 3,5T</option>
+                                                        <option value="Plus de 3,5T">Plus de 3,5T</option>
+                                                    </select>
+                                    </div>
+					</div>
+					
+					<div class="form-group">
+                                            
+						<label class="control-label col-sm-2" for="valeurNeuve">Valeur_neuve:</label>
+                                    <div class="col-sm-10">
+                                         <input class="form-control" id="valeurNeuve" placeholder="valeurNeuve" type="text" name="valeurNeuve" /> 
+                                    </div>
+					</div>
+					
+					<div class="form-group">
+                                            
+						<label class="control-label col-sm-2" for="valeurVenale">Valeur_venale:</label>
+                                    <div class="col-sm-10">
+                                         <input class="form-control" id="valeurVenale" placeholder="valeurVenale" type="text" name="valeurVenale" /> 
+                                    </div>
+					</div>
+					
+					<div class="form-group">
+                                            
+						<label class="control-label col-sm-2" for="cylindre">Cylindre:</label>
+                                    <div class="col-sm-10">
+                                         <input class="form-control" id="cylindre" placeholder="cylindre" type="text" name="cylindre" /> 
+                                    </div>
+					</div>
+					
+					<div class="form-group">
+                                            
+						<label class="control-label col-sm-2" for="chassis">Chassis:</label>
+                                    <div class="col-sm-10">
+                                         <input class="form-control" id="chassis" placeholder="chassis" type="text" name="chassis" /> 
+                                    </div>
+					</div>
+					
+					
+					
+					
+                                         
+					<div>
+						<button type="submit" class="btn btn-primary" style="text-align:center;margin-left: 50% ">Enregistrer</button>
+						<button type="reset" class="btn btn-primary">Annuler</button>
+					</div>
+					
+				</form>
+				</div>
+			</div>
+		</div> -->
+		<div class="col-md-6">
+		 <div class="panel panel-primary">
+		 <div class="pannel panel-heading">Chercher Vehicule</div>
+		 <div class="panel-body">
+		 <form class="form-inline" th:action="@{index3}" method="get">
+				<a th:href="@{formvehicule}" class="btn btn-primary">Ajouter
+					Vehicule</a> <input type="text" name="mc"
+					class="form-control" placeholder="matricule"
+					th:value="${mc}" />
+				<button class="btn btn-primary">Chercher</button>
+			</form>
+		 </div>
+		 </div>
+		 </div>
+		 <div class="col-md-6">
+		 <div class="panel panel-primary">
+		 <div class="pannel panel-heading">Liste Vehicule</div>
+		 <div class="panel-body">
+		 <table class="table table-striped">
+		 				<tr>
+							<th>Marque</th>
+							<th>MEC</th>
+							<th>Categorie</th>
+							<th>Puissance</th>
+							<th>Energie</th>
+							<th>Modele</th>
+							<th>Cylindre</th>
+							<th>Chassis</th>
+							<th>Modifier</th>
+							<th>Supprimer</th>
+
+						</tr>
+						<tr th:each="v:${listVehicules}">
+						<td th:text="${v.marque}"></td>
+						<td th:text="${v.dateMiseCirculation}"></td>
+						<td th:text="${v.categorie?.libelle}"></td>
+						<td th:text="${v.puissance}"></td>
+						<td th:text="${v.energie}"></td>
+						<td th:text="${v.modele}"></td>
+						<td th:text="${v.cylindre}"></td>
+						<td th:text="${v.chassis}"></td>
+						<td><a
+							th:href="@{editupdate(idService=${v.idService})}"
+							class="btn btn-primary" id="edit" onclick="CalculeBC()" >Edit</a></td>
+						<td><a onclick="return confirm('Etes vous sure?')"
+							th:href="@{delete(idService=${v.idService},
+page=${pageCourante},size=${size},mc=${mc})}"
+							class="btn btn-primary">Delete</a></td>
+					</tr>
+					
+		 </table>
+		 
+				<ul class="nav nav-pills">
+					<li th:class="${pageCourante}==${status.index}?'active':''"
+						th:each="pa,status:${pages}"><a
+						th:href="@{/index(page=${status.index},size=${size},mc=${mc})}"
+						th:text="${status.index}"></a></li>
+				</ul>
+			</div>
+		 </div>
+		 </div>
+		 
+	</div>
+</body>
+</html>
+
+
+
