@@ -26,19 +26,16 @@ public class ApporteurController {
 		Page<Apporteur> pageapporteur =null;
 		if(mc==null)
 			pageapporteur=apporteurService.findAllPageApporteur(p, s);
-			
-		/* navireRepository.chercher("%"+mc+"%",new PageRequest(p, s)); */
 		else
 			pageapporteur = apporteurService.chercherApporteur("%"+mc+"%",new PageRequest(p,s));
 		 
 		model.addAttribute("listApporteurs", pageapporteur.getContent());
-		/* model.addAttribute("listSouscripteurs", pagesouscripteurs.getContent()); */
 		int[] pages = new int[pageapporteur.getTotalPages()];
 		model.addAttribute("pages", pages);
 		model.addAttribute("size", s);
 		model.addAttribute("pageCourante", p);
 		model.addAttribute("mc", mc);
-		return "formApporteur";
+		return "Apporteurs";
 	}
 	
 	@RequestMapping(value="/formApporteurs",method=RequestMethod.GET)

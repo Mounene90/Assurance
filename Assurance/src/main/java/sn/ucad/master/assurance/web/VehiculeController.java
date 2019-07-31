@@ -25,19 +25,18 @@ public class VehiculeController {
 	private IService iservice;
 	@Autowired
 	private ICategorieService categorieService;
+
 	@RequestMapping(value = "/index3")
-	/*@GetMapping("/index")*/
 	public String chercher(Model model, @RequestParam(name = "page", defaultValue = "0") int p,
 			@RequestParam(name = "size", defaultValue = "5") int s,
-			@RequestParam(name = "mc", defaultValue = "") String  mc) {
-		Page<Vehicule> pagevehicule =null;
-		if(mc==null)
-			pagevehicule=vehiculeService.findAllPageVehicule(p, s);
+			@RequestParam(name = "mc", defaultValue = "") String mc) {
+		Page<Vehicule> pagevehicule = null;
+		if (mc == null)
+			pagevehicule = vehiculeService.findAllPageVehicule(p, s);
 		else
-			pagevehicule = vehiculeService.chercherVehicule("%"+mc+"%",new PageRequest(p,s));
-		 
+			pagevehicule = vehiculeService.chercherVehicule("%" + mc + "%", new PageRequest(p, s));
+
 		model.addAttribute("listVehicules", pagevehicule.getContent());
-		/* model.addAttribute("listSouscripteurs", pagesouscripteurs.getContent()); */
 		int[] pages = new int[pagevehicule.getTotalPages()];
 		model.addAttribute("pages", pages);
 		model.addAttribute("size", s);
@@ -45,24 +44,20 @@ public class VehiculeController {
 		model.addAttribute("mc", mc);
 		return "Vehicules";
 	}
-	
-	@RequestMapping(value="/formvehicule",method=RequestMethod.GET)
+
+	@RequestMapping(value = "/formvehicule", method = RequestMethod.GET)
 	public String ajoutvehicule(Model model) {
 		model.addAttribute("vehicule", new Vehicule());
 		model.addAttribute("service", iservice.findAllService());
 		model.addAttribute("categorie", categorieService.findAllCategorie());
-		//addAttribute("service" iservice.listeService());
 		return "Vehicule";
 	}
-	
-	@RequestMapping(value="/saveVehicule", method = RequestMethod.POST)
-	public String saveVehicule(@ModelAttribute  @Valid Vehicule vehicule/*,BindingResult bindingResult*/) {
-		/*if(bindingResult.hasErrors())*/
-			/*return "Souscripteur";*/
-		   vehiculeService.AjoutVehicule(vehicule);
-			return "redirect:/formvehicule";
-		/*return "Confirmation";*/
+
+	@RequestMapping(value = "/saveVehicule", method = RequestMethod.POST)
+	public String saveVehicule(@ModelAttribute @Valid Vehicule vehicule/* ,BindingResult bindingResult */) {
+		/* if(bindingResult.hasErrors()) */
+		vehiculeService.AjoutVehicule(vehicule);
+		return "redirect:/formvehicule";
 	}
-	
 
 }

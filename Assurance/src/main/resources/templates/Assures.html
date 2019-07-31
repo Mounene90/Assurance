@@ -12,7 +12,7 @@
 	th:src="@{js/scripts.js}"></script>
 </head>
 <body>
-	<div layout:fragment="content"></div>
+	<div layout:fragment="content">
 	<div class="col-md-6">
 		<div class="panel panel-primary">
 			<div class="pannel panel-heading">Chercher Assure</div>
@@ -32,8 +32,8 @@
 			<div class="panel-body">
 				<table class="table table-striped">
 					<tr>
-						<th>Nom Assure</th>
-						<th>Prenom Assure</th>
+						<th>Nom </th>
+						<th>Prenom </th>
 						<th>Telephone</th>
 						<th>Adresse</th>
 						<th>Modifier</th>
@@ -50,14 +50,14 @@
 						<!-- <td th:text="${c.}"></td> -->
 						<td th:text="${a.telephone}"></td>
 						<td th:text="${a.adresseAssure}"></td>
-						<td>
+						
 						<td><a th:href="@{editupdate(idAssure=${a.idAssure})}"
 							class="btn btn-primary">Edit</a></td>
 						<td><a onclick="return confirm('Etes vous sure?')"
 							th:href="@{delete(idAssure=${a.idAssure},
 page=${pageCourante},size=${size},mc=${mc})}"
 							class="btn btn-primary">Delete</a></td>
-						</td>
+						
 					</tr>
 				</table>
 				<ul class="nav nav-pills">
@@ -69,6 +69,6 @@ page=${pageCourante},size=${size},mc=${mc})}"
 			</div>
 		</div>
 	</div>
-
+</div>
 </body>
 </html>

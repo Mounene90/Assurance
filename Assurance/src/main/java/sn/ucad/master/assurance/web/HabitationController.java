@@ -24,17 +24,14 @@ public class HabitationController {
 	public String ajoutHabitations(Model model) {
 		model.addAttribute("habitation", new Habitation());
 		model.addAttribute("service", iservice.findAllService());
-		//addAttribute("service" iservice.listeService());
 		return "Habitation";
 	}
 	
 	@RequestMapping(value="/savehabitation", method = RequestMethod.POST)
 	public String saveshabi(@ModelAttribute  @Valid Habitation habitation/*,BindingResult bindingResult*/) {
 		/*if(bindingResult.hasErrors())*/
-			/*return "Souscripteur";*/
 		   habitationService.ajoutHabitation(habitation);
 			return "redirect:/formhabitation";
-		/*return "Confirmation";*/
 	}
 
 }

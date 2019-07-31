@@ -184,7 +184,7 @@
 							<th>Marque</th>
 							<th>MEC</th>
 							<th>Categorie</th>
-							<th>Puissance</th>
+							<!-- <th>Puissance</th> -->
 							<th>Energie</th>
 							<th>Modele</th>
 							<th>Cylindre</th>
@@ -197,7 +197,7 @@
 						<td th:text="${v.marque}"></td>
 						<td th:text="${v.dateMiseCirculation}"></td>
 						<td th:text="${v.categorie?.libelle}"></td>
-						<td th:text="${v.puissance}"></td>
+						<!-- <td th:text="${v.puissance}"></td> -->
 						<td th:text="${v.energie}"></td>
 						<td th:text="${v.modele}"></td>
 						<td th:text="${v.cylindre}"></td>
@@ -216,7 +216,7 @@ page=${pageCourante},size=${size},mc=${mc})}"
 				<ul class="nav nav-pills">
 					<li th:class="${pageCourante}==${status.index}?'active':''"
 						th:each="pa,status:${pages}"><a
-						th:href="@{/index(page=${status.index},size=${size},mc=${mc})}"
+						th:href="@{/index3(page=${status.index},size=${size},mc=${mc})}"
 						th:text="${status.index}"></a></li>
 				</ul>
 			</div>

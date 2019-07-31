@@ -23,7 +23,6 @@ public class PrimeController {
 	public String ajoutPrimes(Model model) {
 		model.addAttribute("prime", new Prime());
 		model.addAttribute("contrat", contratService.findAllContrat());
-		//addAttribute("service" iservice.listeService());
 		return "Prime";
 	}
 	@RequestMapping(value="/savePrime", method = RequestMethod.POST)

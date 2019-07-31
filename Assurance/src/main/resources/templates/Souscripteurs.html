@@ -10,58 +10,57 @@
 <body>
 
 	<div layout:fragment="content">
-		<div class="container">
-			<form class="form-inline" th:action="@{index}" method="get">
-				<a th:href="@{formsouscripteur}" class="btn btn-primary">Ajouter
-					Souscripteur</a> <input type="text" name="mc"
-					class="form-control" placeholder="Telephohe"
-					th:value="${mc}" />
-				<button class="btn btn-primary">Chercher</button>
-			</form>
-		</div>
-		<div class="container">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<p class="text-center">Liste des Souscripteurs</p>
+		<div class="col-md-6">
+			<div class="panel panel-primary">
+				<div class="pannel panel-heading">Chercher</div>
+				<div class="panel-body">
+					<form class="form-inline" th:action="@{index}" method="get">
+						<a th:href="@{formsouscripteur}" class="btn btn-primary">Ajouter
+							Souscripteur</a> <input type="text" name="mc" class="form-control"
+							placeholder="Telephohe" th:value="${mc}" />
+						<button class="btn btn-primary">Chercher</button>
+					</form>
 				</div>
-
-
-				<table class="table table-hover">
-					<thead>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="panel panel-primary">
+				<div class="pannel panel-heading">Liste des Souscripteurs</div>
+				<div class="panel-body">
+					<table class="table table-striped">
 						<tr>
 							<th>Nom</th>
 							<th>Prenom</th>
 							<th>Adresse Mail</th>
-							<th>Numero_Telephone</th>
+							<th>Numero</th>
 							<th>Adresse</th>
-
+							<th>Modifier</th>
+							<th>Supprimer</th>
 						</tr>
-					</thead>
-					<tbody>
-					</tbody>
-					<tr th:each="s:${listSouscripteurs}">
-						<td th:text="${s.nomSouscripteur}"></td>
-						<td th:text="${s.prenomSouscripteur}"></td>
-						<td th:text="${s.adresseSouscripteur}"></td>
-						<td th:text="${s.telephoneSouscripteur}"></td>
-						<td th:text="${s.adresseMail}"></td>
-						<td><a
-							th:href="@{editupdate(idSouscripeur=${s.idSouscripeur})}"
-							class="btn btn-primary">Edit</a></td>
-						<td><a onclick="return confirm('Etes vous sure?')"
-							th:href="@{delete(idSouscripeur=${s.idSouscripeur},
+
+						<tr th:each="s:${listSouscripteurs}">
+							<td th:text="${s.nomSouscripteur}"></td>
+							<td th:text="${s.prenomSouscripteur}"></td>
+							<td th:text="${s.adresseMail}"></td>
+							<td th:text="${s.telephoneSouscripteur}"></td>
+							<!-- <td th:text="${s.adresseMail}"></td> -->
+							<td th:text="${s.adresseSouscripteur}"></td>
+							<td><a
+								th:href="@{editupdate(idSouscripeur=${s.idSouscripeur})}"
+								class="btn btn-primary">Edit</a></td>
+							<td><a onclick="return confirm('Etes vous sure?')"
+								th:href="@{delete(idSouscripeur=${s.idSouscripeur},
 page=${pageCourante},size=${size},mc=${mc})}"
-							class="btn btn-primary">Delete</a></td>
-					</tr>
-				</table>
-			</div>
-			<div class="container">
-				<ul class="nav nav-pills">
-					<li th:class="${pageCourante}==${status.index}?'active':''"
-						th:each="pa,status:${pages}"><a
-						th:href="@{/index(page=${status.index},size=${size},mc=${mc})}"
-						th:text="${status.index}"></a></li>
-				</ul>
+								class="btn btn-primary">Delete</a></td>
+						</tr>
+					</table>
+					<ul class="nav nav-pills">
+						<li th:class="${pageCourante}==${status.index}?'active':''"
+							th:each="pa,status:${pages}"><a
+							th:href="@{/index(page=${status.index},size=${size},mc=${mc})}"
+							th:text="${status.index}"></a></li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>

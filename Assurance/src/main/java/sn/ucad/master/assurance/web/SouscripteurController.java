@@ -20,28 +20,23 @@ import sn.ucad.master.assurance.service.ISouscripteurService;
 public class SouscripteurController {
 	@Autowired
 	private ISouscripteurService souscripteurService;
-
-	@RequestMapping(value = "/listsSouscripteur")
-	/*@GetMapping("/index")*/
+	@RequestMapping(value = "/index")
 	public String cherchers(Model model, @RequestParam(name = "page", defaultValue = "0") int p,
 			@RequestParam(name = "size", defaultValue = "5") int s,
 			@RequestParam(name = "mc", defaultValue = "") Integer mc) {
 		Page<Souscripteur> pagesouscripteur =null;
 		if(mc==null)
 			 pagesouscripteur=souscripteurService.findAllPageSouscripteur(p, s);
-			
-		/* navireRepository.chercher("%"+mc+"%",new PageRequest(p, s)); */
 		else
 			pagesouscripteur = souscripteurService.chercherSouscripteur(mc,new PageRequest(p,s));
 		 
 		model.addAttribute("listSouscripteurs", pagesouscripteur.getContent());
-		/* model.addAttribute("listSouscripteurs", pagesouscripteurs.getContent()); */
 		int[] pages = new int[pagesouscripteur.getTotalPages()];
 		model.addAttribute("pages", pages);
 		model.addAttribute("size", s);
 		model.addAttribute("pageCourante", p);
 		model.addAttribute("mc", mc);
-		return "Souscripteur";
+		return "Souscripteurs";
 	}
 
 	@RequestMapping(value = "/formsouscripteur", method = RequestMethod.GET)
@@ -62,16 +57,13 @@ public class SouscripteurController {
 		Souscripteur sous = souscripteurService.findSouscripteurById(idSouscripeur);
 		model.addAttribute("souscripteur", sous);
 		return "Souscripteur";
-		/*return "EditSouscripteur";*/
 	}
 
 	@RequestMapping(value = "/savesouscripteur", method = RequestMethod.POST)
 	public String save(@ModelAttribute @Valid Souscripteur souscripteur/* ,BindingResult bindingResult */) {
 		/* if(bindingResult.hasErrors()) */
-		/* return "Souscripteur"; */
 		souscripteurService.ajouterSouscripeur(souscripteur);
 		return "redirect:/formsouscripteur";
-		/* return "Confirmation"; */
 	}
 
 }

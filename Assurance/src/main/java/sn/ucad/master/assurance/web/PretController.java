@@ -33,9 +33,7 @@ public class PretController {
 
 		else
 			pagespret = ipret.chercherPret("%" + mc + "%", new PageRequest(p, s));
-
 		model.addAttribute("listPrets", pagespret.getContent());
-		/* model.addAttribute("listSouscripteurs", pagesouscripteurs.getContent()); */
 		int[] pages = new int[pagespret.getTotalPages()];
 		model.addAttribute("pages", pages);
 		model.addAttribute("size", s);
@@ -48,14 +46,12 @@ public class PretController {
 	public String ajoutPrets(Model model) {
 		model.addAttribute("pret", new Pret());
 		model.addAttribute("service", iservice.findAllService());
-		// addAttribute("service" iservice.listeService());
 		return "Pret";
 	}
 
 	@RequestMapping(value = "/savepret", method = RequestMethod.POST)
 	public String savespret(@ModelAttribute @Valid Pret pret/* ,BindingResult bindingResult */) {
 		/* if(bindingResult.hasErrors()) */
-		/* return "Souscripteur"; */
 		ipret.ajoutPret(pret);
 		return "redirect:/formpret";
 		/* return "Confirmation"; */

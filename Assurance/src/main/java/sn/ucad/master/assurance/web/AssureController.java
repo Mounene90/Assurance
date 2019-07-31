@@ -11,7 +11,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import sn.ucad.master.assurance.bo.Assure;
 import sn.ucad.master.assurance.service.IAssureService;
 
@@ -28,13 +27,9 @@ public class AssureController {
 		Page<Assure> pageassure = null;
 		if (mc == null)
 			pageassure = assureService.findAllPageAssure(p, s);
-
-		/* navireRepository.chercher("%"+mc+"%",new PageRequest(p, s)); */
 		else
 			pageassure = assureService.chercherAssure(mc, new PageRequest(p, s));
-
 		model.addAttribute("listAssures", pageassure.getContent());
-		/* model.addAttribute("listSouscripteurs", pagesouscripteurs.getContent()); */
 		int[] page = new int[pageassure.getTotalPages()];
 		model.addAttribute("page", page);
 		model.addAttribute("size", s);
