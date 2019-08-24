@@ -1,135 +1,86 @@
 <!DOCTYPE html>
-<html  xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="template">
 <head>
 <meta charset="utf-8" />
 <title>Apporteur</title>
 <link rel="stylesheet" type="text/css"
 	href="../static/css/bootstrap.min.css"
-
-	th:href="@{css/bootstrap.min.css}" />
+	th:href="@{/css/bootstrap.min.css}" />
 </head>
 <body>
-<div layout:fragment="content">
-			<div class="col-md-6">
-			<div class="panel panel-primary">
-            <!-- <div class="panel panel-default" style="margin-bottom: 10%;margin-top: 3%;margin-left: 60%;margin-right: 10%;width: 100%"> -->
-                <div  class="panel panel-heading">Ajouter un Apporteur</div>
-                        <div class="panel-body">
-				<form th:action="@{saveApporteur}" method="post" modelAttribut="apporteur" class="form-horizontal">
-					<div class="form-group">
-						<label class="control-label col-sm-2" for="codeApp"><h10>Code</h10>:</label> 
-                        <div class="col-sm-10">
-                             <input class="form-control" id="codeApp" placeholder="codeApp"
-								 type="text" name="codeApp" th:value="${apporteur?.codeApp}" /> 
-						</div>
-                    </div>
-					<div class="form-group">
-						<label class="control-label col-sm-2" for="nomApp">Nom:</label>
-                        <div class="col-sm-10">
-                                                <input class="form-control" id="nomApp" placeholder="nomApp"
-							type="text" name="nomApp" th:value="${apporteur?.nomApp}" /> 
-						</div>
-                    </div>
+	<div layout:fragment="content">
+		<div class="col-md-6">
+			<div class="panel panel-primary" style="margin-bottom: 10%; margin-top: 3%; margin-left: 60%; margin-right: 10%; width: 100%">
+					<div class="panel panel-heading">Ajouter un Apporteur</div>
+					<div class="panel-body">
+						<form th:action="@{saveApporteur}" method="post"
+							modelAttribut="apporteur" class="form-horizontal">
 							<div class="form-group">
-								<label class="control-label col-sm-2" for="prenomApp">Prenom:</label> 
-		                    <div class="col-sm-10">
-		                            <input class="form-control" id="prenomApp" placeholder="prenomApp" 
-		                            type="text" name="prenomApp" th:value="${apporteur?.prenomApp}" />
-		
+								<label class="control-label col-sm-2" for="codeApp"><h10>Code</h10>:</label>
+								<div class="col-sm-10">
+									<input class="form-control" id="codeApp" placeholder="codeApp"
+										type="text" name="codeApp" th:value="${apporteur?.codeApp}" />
+								</div>
 							</div>
-                    </div>
-					<div class="form-group">
-						<label class="control-label col-sm-2" for="adresseApp">Adresse: </label> 
-                        <div class="col-sm-10">
-                                                <input class="form-control" id="adresseApp" placeholder="adresseApp"
-							type="text" name="adresseApp" th:value="${apporteur?.adresseApp}" />
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="nomApp">Nom:</label>
+								<div class="col-sm-10">
+									<input class="form-control" id="nomApp" placeholder="nomApp"
+										type="text" name="nomApp" th:value="${apporteur?.nomApp}" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="prenomApp">Prenom:</label>
+								<div class="col-sm-10">
+									<input class="form-control" id="prenomApp"
+										placeholder="prenomApp" type="text" name="prenomApp"
+										th:value="${apporteur?.prenomApp}" />
 
-						</div>
-                    </div>
-                    
-                    <div class="form-group">
-						<label class="control-label col-sm-2" for="telephoneApp">Telephone: </label> 
-                        <div class="col-sm-10">
-                                                <input class="form-control" id="telephoneApp" placeholder="telephoneApp"
-							type="text" name="telephoneApp" th:value="${apporteur?.telephoneApp}" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="adresseApp">Adresse:
+								</label>
+								<div class="col-sm-10">
+									<input class="form-control" id="adresseApp"
+										placeholder="adresseApp" type="text" name="adresseApp"
+										th:value="${apporteur?.adresseApp}" />
 
-						</div>
-                    </div>
-                    <div class="form-group">
-						<label class="control-label col-sm-2" for="mailApp">Mail: </label> 
-                        <div class="col-sm-10">
-                                                <input class="form-control" id="mailApp" placeholder="mailApp"
-							type="mail" name="mailApp" th:value="${apporteur?.mailApp}" />
+								</div>
+							</div>
 
-						</div>
-                    </div>
-					
-					
-					<div>
-						<button type="submit" class="btn btn-primary" style="text-align:center;margin-left: 50% ">Enregistrer</button>
-						<button type="reset" class="btn btn-primary">Annuler</button>
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="telephoneApp">Telephone:
+								</label>
+								<div class="col-sm-10">
+									<input class="form-control" id="telephoneApp"
+										placeholder="telephoneApp" type="text" name="telephoneApp"
+										th:value="${apporteur?.telephoneApp}" />
+
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="mailApp">Mail:
+								</label>
+								<div class="col-sm-10">
+									<input class="form-control" id="mailApp" placeholder="mailApp"
+										type="mail" name="mailApp" th:value="${apporteur?.mailApp}" />
+
+								</div>
+							</div>
+
+
+							<div>
+								<button type="submit" class="btn btn-primary"
+									style="text-align: center; margin-left: 50%">Enregistrer</button>
+								<button type="reset" class="btn btn-primary">Annuler</button>
+							</div>
+						</form>
 					</div>
-				</form>
 				</div>
 			</div>
-		</div>
-		<div class="col-md-6">
-		 <div class="panel panel-primary">
-		 <div class="pannel panel-heading">Chercher Apporteur</div>
-		 <div class="panel-body">
-		 <form class="form-inline" th:action="@{index2}" method="get">
-				<!-- <a th:href="@{formsouscripteur}" class="btn btn-primary">Ajouter
-					Souscripteur</a> --> <input type="text" name="mc"
-					class="form-control" placeholder="Code Apporteur"
-					th:value="${mc}" />
-				<button class="btn btn-primary">Chercher</button>
-			</form>
-		 </div>
-		 </div>
-		 </div>
-		 <div class="col-md-6">
-		 <div class="panel panel-primary">
-		 <div class="pannel panel-heading">Liste Apporteur</div>
-		 <div class="panel-body">
-		 <table class="table table-striped">
-		 				<tr>
-							<th>Nom</th>
-							<th>Prenom</th>
-							<th>Adresse</th>
-							<th>Numero_Telephone</th>
-							<th>Adresse Mail</th>
-							<th>Modifier</th>
-							<th>Supprimer</th>
-
-						</tr>
-						<tr th:each="ap:${listApporteurs}">
-						<td th:text="${ap.nomApp}"></td>
-						<td th:text="${ap.prenomApp}"></td>
-						<td th:text="${ap.adresseApp}"></td>
-						<td th:text="${ap.telephoneApp}"></td>
-						<td th:text="${ap.mailApp}"></td>
-						<td><a
-							th:href="@{editupdate(codeApp=${ap.codeApp})}"
-							class="btn btn-primary" >Edit</a></td>
-						<td><a onclick="return confirm('Etes vous sure?')"
-							th:href="@{delete(codeApp=${ap.codeApp},
-page=${pageCourante},size=${size},mc=${mc})}"
-							class="btn btn-primary">Delete</a></td>
-					</tr>
-					
-		 </table>
-		 
-				<ul class="nav nav-pills">
-					<li th:class="${pageCourante}==${status.index}?'active':''"
-						th:each="pa,status:${pages}"><a
-						th:href="@{/index(page=${status.index},size=${size},mc=${mc})}"
-						th:text="${status.index}"></a></li>
-				</ul>
 			</div>
-		 </div>
-		 </div>
-	</div>
-   
-
 </body>
 </html>

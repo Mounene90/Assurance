@@ -26,7 +26,8 @@ public class DetailController {
 		model.addAttribute("detail", new Detail());
 		model.addAttribute("contrat", contratService.findAllContrat());
 		model.addAttribute("garantie", garantieService.findAllGarantie());
-		return "Detail";
+		/*return "Detail";*/
+		return "DetailGarantie";
 	}
 	
 	@RequestMapping(value="/saveDetail", method = RequestMethod.POST)

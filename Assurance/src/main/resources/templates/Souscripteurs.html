@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http:/www.thymeleaf.org">
+<html xmlns:th="http:/www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorator="template">
 <head>
 <meta charset="utf-8" />
 <title>Souscripteurs</title>
@@ -10,8 +12,8 @@
 <body>
 
 	<div layout:fragment="content">
-		<div class="col-md-6">
-			<div class="panel panel-primary">
+		<div class="col-md-10">
+			<div class="panel panel-primary" style="margin-left: 20%">
 				<div class="pannel panel-heading">Chercher</div>
 				<div class="panel-body">
 					<form class="form-inline" th:action="@{index}" method="get">
@@ -23,8 +25,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-6">
-			<div class="panel panel-primary">
+		<div class="col-md-10">
+			<div class="panel panel-primary" style="margin-left: 20%">
 				<div class="pannel panel-heading">Liste des Souscripteurs</div>
 				<div class="panel-body">
 					<table class="table table-striped">

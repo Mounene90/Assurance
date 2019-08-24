@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html  xmlns:th="http://www.thymeleaf.org">
+<html  xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorator="template">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Souscripteur</title>
@@ -20,21 +22,21 @@
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="nomSouscripteur"><h10>Nom</h10>:</label> 
                         <div class="col-sm-10">
-                             <input class="form-control" id="nomSouscripteur" placeholder="nomSouscripteur"
+                             <input class="form-control" id="nomSouscripteur" placeholder="nomSouscripteur" style="padding: 4%"
 								 type="text" name="nomSouscripteur"  /> 
 						</div>
                     </div>
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="prenomAssure">Prenom:</label>
                         <div class="col-sm-10">
-                                                <input class="form-control" id="prenomSouscripteur" placeholder="prenomSouscripteur"
+                                                <input class="form-control" id="prenomSouscripteur" placeholder="prenomSouscripteur" style="padding: 4%"
 							onchange="CalculeBC()" type="text" name="prenomSouscripteur"  /> 
 						</div>
                     </div>
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="adresseAssure">Adresse:</label> 
 		                    <div class="col-sm-10">
-		                            <input class="form-control" id="adresseSouscripteur" placeholder="adresseSouscripteur" 
+		                            <input class="form-control" id="adresseSouscripteur" placeholder="adresseSouscripteur"  style="padding: 4%"
 		                            type="text" name="adresseSouscripteur" />
 		
 							</div>
@@ -42,7 +44,7 @@
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="telephone">Telephone: </label> 
                         <div class="col-sm-10">
-                                                <input class="form-control" id="telephoneSouscripteur" placeholder="telephoneSouscripteur"
+                                                <input class="form-control" id="telephoneSouscripteur" placeholder="telephoneSouscripteur" style="padding: 4%"
 							type="text" name="telephoneSouscripteur"  />
 
 						</div>
@@ -51,7 +53,7 @@
                     <div class="form-group">
 						<label class="control-label col-sm-2" for="adresseMail">Mail: </label> 
                         <div class="col-sm-10">
-                                                <input class="form-control" id="adresseMail" placeholder="adresseMail"
+                                                <input class="form-control" id="adresseMail" placeholder="adresseMail" style="padding: 4%"
 							type="mail" name="adresseMail"  />
 
 						</div>

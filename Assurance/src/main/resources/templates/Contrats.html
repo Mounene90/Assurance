@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorator="template">
 <head>
 <meta charset="utf-8" />
 <title>Contrat</title>
 <link rel="stylesheet" type="text/css"
 	href="../static/css/bootstrap.min.css"
 	th:href="@{css/bootstrap.min.css}" />
-	<link rel="stylesheet" type="text/javascript" href="../static/js/script.js" th:href="@{js/script.js}"/>
+	<script type="text/javascript" src="../static/js/scripts.js"
+	th:src="@{js/scripts.js}"></script>
 </head>
 <body>
 	<div layout:fragment="content">

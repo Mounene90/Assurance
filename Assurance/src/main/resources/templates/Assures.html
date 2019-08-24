@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorator="template">
 <head>
 <meta charset="utf-8" />
 <title>Listes Assures</title>
@@ -13,8 +14,8 @@
 </head>
 <body>
 	<div layout:fragment="content">
-	<div class="col-md-6">
-		<div class="panel panel-primary">
+	<div class="col-md-10">
+		<div class="panel panel-primary" style="margin-left: 20%">
 			<div class="pannel panel-heading">Chercher Assure</div>
 			<div class="panel-body">
 				<form class="form-inline" th:action="@{lists}" method="get">
@@ -25,9 +26,9 @@
 				</form>
 			</div>
 		</div>
-	</div>
-	<div class="col-md-6">
-		<div class="panel panel-primary">
+<!-- 	</div> -->
+	<!-- <div class="col-md-6"> -->
+		<div class="panel panel-primary" style="margin-left: 20%">
 			<div class="pannel panel-heading">Listes Assures</div>
 			<div class="panel-body">
 				<table class="table table-striped">
