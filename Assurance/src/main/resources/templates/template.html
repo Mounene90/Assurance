@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="utf-8" />
+<title>Assurance</title>
+<link rel="stylesheet" type="text/css"
+	href="../static/css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" href="../static/css/MyStyle.css"
+	th:href="@{/css/MyStyle.css}" />
+</head>
+<body>
+	<header>
+	 
+		<div class="navbar navbar-inverse">
+			<div class="container-fluid">
+			<div class="navbar-header">
+      <a class="navbar-brand" href="#">Assurance</a>
+    </div>
+			<ul class="nav navbar-nav">
+			<li><a th:href="@{/lists}">Assure</a></li>
+			<li><a th:href="@{/index2}">Apporteur</a></li>
+			<li><a th:href="@{/index}">Souscripteurs</a></li>
+			<li><a th:href="@{/}">Service</a></li>
+			<li><a th:href="@{/}">Contrat</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+			<li><a th:href="@{/login?logout}">Deconnexion</a></li>
+			</ul>
+			
+			</div>
+		</div>
+	</header>
+	<section layout:fragment="content"></section>
+	<footer>
+	<div class="navbar-fixed-bottom">
+	<div class="container">
+	<small> Copyright @2019</small>
+	</div>
+	</div>
+	</footer>
+</body>
+</html>
