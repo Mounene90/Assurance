@@ -9,8 +9,9 @@ layout:decorator="template">
 	th:href="@{css/bootstrap.min.css}" />
 </head>
 <body>
-	<div class="spacer col-md-5" layout:fragment="content">
-		<div class="panel panel-default" style="margin-bottom: 10%;margin-top: 3%;margin-left: 60%;margin-right: 10%;width: 100%">
+	<div  layout:fragment="content">
+	<div class="col-md-6">
+		<div class="panel panel-primary" style="margin-bottom: 10%;margin-top: 3%;margin-left: 60%;margin-right: 10%;width: 100%">
 			<div class="panel-heading">Habitation</div>
 			<div class="panel-body">
 				<form th:action="@{savehabitation}" method="post" modelAttribut="habitation" class="form-horizontal">
@@ -90,6 +91,7 @@ layout:decorator="template">
 				</form>
 			</div>
 		</div>
+	</div>
 	</div>
 </body>
 </html>

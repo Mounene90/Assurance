@@ -16,13 +16,13 @@
 		<div class="col-md-10">
 			<div class="panel panel-primary" style="margin-left: 20%">
 		<!-- <div class="panel panel-default" style="margin-bottom: 10%;margin-top: 3%;margin-left: 60%;margin-right: 10%;width: 100%"> -->
-			<div class="panel panel-heading">Chercher Prets</div>
+			<div class="panel panel-heading">Chercher Habitation</div>
 			<div class="panel-body">
-			<form class="form-inline" th:action="@{index1}" method="get">
-			<a th:href="@{formpret}" class="btn btn-primary">Ajouter
-					Pret</a> 
+			<form class="form-inline" th:action="@{index5}" method="get">
+			<a th:href="@{formhabitation}" class="btn btn-primary">Ajouter
+					Habitation</a> 
 				 <input type="text" name="mc"
-					class="form-control" placeholder="NomOrganisme"
+					class="form-control" placeholder="Adresse"
 					th:value="${mc}" />
 				<button class="btn btn-primary">Chercher</button>
 			</form>
@@ -31,26 +31,30 @@
 		 <!-- </div>
 		 <div class="col-md-6"> -->
 		 <div class="panel panel-primary" style="margin-left: 20%">
-		 <div class="pannel panel-heading">Liste Pret</div>
+		 <div class="pannel panel-heading">Liste Habitation</div>
 		 <div class="panel-body">
 		 <table class="table table-striped">
 		 				<tr>
-							<th>Date Pret</th>
-							<th>Nom Organisme</th>
-							<th>Montant</th>
+							<th>Adresse</th>
+							<th>Superficie</th>
+							<th>Montant_Acquisition</th>
+							<th>Type_Batiment</th>
+							<th>Nombre_Piece</th>
 							<th>Modifier</th>
 							<th>Supprimer</th>
 
 						</tr>
-						<tr th:each="p:${listPrets}">
-						<td th:text="${p.datePret}"></td>
-						<td th:text="${p.nomOrganisme}"></td>
-						<td th:text="${p.mtnPret}"></td>
+						<tr th:each="h:${listHabits}">
+						<td th:text="${h.adresse}"></td>
+						<td th:text="${h.superficie}"></td>
+						<td th:text="${h.mtnAcquisition}"></td>
+						<td th:text="${h.typeBatiment}"></td>
+						<td th:text="${h.nbrePiece}"></td>
 						<td><a
-							th:href="@{editupdate(idService=${p.idService})}"
+							th:href="@{editupdate(idService=${h.idService})}"
 							class="btn btn-primary" id="edit" onclick="return confirm('Etes vous sure?')" >Edit</a></td>
 						<td><a onclick="return confirm('Etes vous sure?')"
-							th:href="@{delete(idService=${p.idService},
+							th:href="@{delete(idService=${h.idService},
 page=${pageCourante},size=${size},mc=${mc})}"
 							class="btn btn-primary">Delete</a></td>
 					</tr>
@@ -59,8 +63,8 @@ page=${pageCourante},size=${size},mc=${mc})}"
 		 
 				<ul class="nav nav-pills">
 					<li th:class="${pageCourante}==${status.index}?'active':''"
-						th:each="pa,status:${pages}"><a
-						th:href="@{/index1(page=${status.index},size=${size},mc=${mc})}"
+						th:each="pa,status:${pagesss}"><a
+						th:href="@{/index5(page=${status.index},size=${size},mc=${mc})}"
 						th:text="${status.index}"></a></li>
 				</ul>
 			</div>

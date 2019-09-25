@@ -1,154 +1,41 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-layout:decorator="template">
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="template">
 <head>
 <meta charset="utf-8" />
 <title>Listes Contrats</title>
 <link rel="stylesheet" type="text/css"
 	href="../static/css/bootstrap.min.css"
 	th:href="@{css/bootstrap.min.css}" />
-	<script type="text/javascript" src="../static/js/scripts.js"
+<script type="text/javascript" src="../static/js/scripts.js"
 	th:src="@{js/scripts.js}"></script>
 </head>
 <body>
 	<div layout:fragment="content">
-	<!-- <div class="col-md-6">
-			<div class="panel panel-primary">
-		<div class="panel panel-default" style="margin-bottom: 10%;margin-top: 3%;margin-left: 60%;margin-right: 10%;width: 100%">
-			<div class="panel panel-heading">Ajout d'un Contrat</div>
-			<div class="panel-body">
-				<form th:action="@{saveContrat}" method="post" modelAttribut="contrat" class="form-horizontal">
-				<div class="form-group">
-                                             <label class="control-label col-sm-2" for="service">Service:</label>
-                                             <div class="col-sm-10">
-			      			<select class="form-control" id="service" name="service">
-			      				<option label="Service" value="1"></option>
-			      				<option th:each="s:${service}" th:text="${s.referenceservice}" th:value="${s.idService}"></option>
-			      			</select>
-                                             </div>   
-			      		 </div>
-					<div class="form-group">
-						<label class="control-label col-sm-2" for="referance">Reference:</label> 
-                                                <div class="col-sm-10">
-                                                <input class="form-control" id="referance" placeholder="referance"
-							type="text" name="referance"
-							th:value="${contrat?.referance}" /> 
-                                                </div>
-                                        </div>       
-					<div class="form-group">
-						<label class="control-label col-sm-2" for="dateDebut" >Date_creation:</label>
-                                                <div class="col-sm-10">
-                                                <input class="form-control" id="dateDebut" placeholder="dateDebut"
-							type="date"  name="dateDebut" 
-							th:value="${contrat?.dateDebut}" /> 
-                                                </div>
-					</div>
-					<div class="form-group">
-						<label class="control-label col-sm-2" for="dateCreation" >Date_debut:</label>
-                                                <div class="col-sm-10">
-                                                <input class="form-control" id="dateCreation" placeholder="dateCreation"
-							type="date"  name="dateCreation" 
-							th:value="${contrat?.dateCreation}" /> 
-                                                </div>
-					</div>
-					<div class="form-group">
-                                             <label class="control-label col-sm-2" for="duree">Duree:</label>
-                                             <div class="col-sm-10">
-			      			<select class="form-control" id="duree" name="duree">
-			      				<option value="0"><h5>DUREE</h5></option>
-                                                        <option value="1">1 mois</option>
-                                                        <option value="2">2 mois</option>
-                                                        <option value="3">3 mois</option>
-                                                        <option value="4">4 mois</option>
-                                                        <option value="5">5 mois</option>
-                                                        <option value="6">6 mois</option>
-                                                        <option value="7">7 mois</option>
-                                                        <option value="8">8 mois</option>
-                                                        <option value="9">9 mois</option>
-                                                        <option value="12">Annuelle</option>
-			      			</select>
-                                             </div>   
-			      		 </div>
-					<div class="form-group">
-						<label class="control-label col-sm-2" for="dateFin">Date_Echeance: </label>
-                                                <div class="col-sm-10">
-                                                <input class="form-control" id="dateFin" placeholder="dateFin" aria-describedby="sizing-addon1"
-							type="date" name="dateFin" 
-							th:value="${contrat?.dateFin}" />
-                                                </div>
 
-					</div>
-					
-					<div class="form-group">
-                                             <label class="control-label col-sm-2" for="apporteur">Apporteur:</label>
-                                             <div class="col-sm-10">
-			      			<select class="form-control" id="apporteur" name="apporteur">
-			      				<option label="Apporteur" value="1"></option>
-			      				<option th:each="ap:${apporteur}" th:text="${ap.prenomApp+ ' ' +ap.nomApp}" th:value="${ap?.codeApp}"></option>
-			      			</select>
-                                             </div>   
-			      		 </div>
-					
-					 <div class="form-group">
-                                             <label class="control-label col-sm-2" for="souscripteur">Souscripteur:</label>
-                                             <div class="col-sm-10">
-			      			<select class="form-control" id="souscripteur" name="souscripteur">
-			      				<option label="Souscripteur" value="1"></option>
-			      				<option th:each="s:${souscripteur}" th:text="${s.prenomSouscripteur+ ' ' +s.nomSouscripteur}" th:value="${s?.idSouscripeur}"></option>
-			      			</select>
-                                             </div>   
-			      		 </div>
-					 <div class="form-group">
-                                             <label class="control-label col-sm-2" for="assure">Assure:</label>
-                                             <div class="col-sm-10">
-			      			<select class="form-control" id="assure" name="assure">
-			      				<option label="Assure" value="1"></option>
-			      				<option th:each="a:${assure}" th:text="${a.prenomAssure+ ' ' +a.nomAssure}" th:value="${a?.idAssure}"></option>
-			      			</select>
-                                             </div>
-			      		 </div>
-			      		 
-			      		  <div class="form-group">
-                                             <label class="control-label col-sm-2" for="service">Service:</label>
-                                             <div class="col-sm-10">
-			      			<select class="form-control" id="service" name="service">
-			      				<option label="Service" value="1"></option>
-			      				<option  th:each="s:${service}" th:text="${s.}" th:value="${s.idService}"></option>
-			      			</select>
-                                             </div>
-			      		 </div>
-					            
-					<div>
-						<button type="submit" class="btn btn-primary" style="text-align:center;margin-left: 50% ">Enregistrer</button>
-						<button type="reset" class="btn btn-primary">Annuler</button>
-					</div>
-				</form>
-			</div>
-			</div> -->
-		
 		<div class="col-md-10">
-		 <div class="panel panel-primary" style="margin-left: 20%">
-		 <div class="pannel panel-heading">Chercher Contrat</div>
-		 <div class="panel-body">
-		 <form class="form-inline" th:action="@{consulterContrat}" method="get">
-				<a th:href="@{formcontrat}" class="btn btn-primary">Ajouter
-					Contrat</a> <input type="text" name="mc"
-					class="form-control" placeholder="Reference"
-					th:value="${mc}" />
-				<button class="btn btn-primary">Chercher</button>
-				<a th:href="@{/formDetails}" class="btn btn-primary" style="margin-left: 35%">Ajouter_Prime_
-					Contrat</a>
-			</form>
-			
-		 </div>
-		 </div>
-		 <!-- </div> -->
-		 <!-- <div class="col-md-6"> -->
-		 <div class="panel panel-primary" style="margin-left: 20%">
-		 <div class="pannel panel-heading">Liste Contrat</div>
-		 <div class="panel-body">
-		 	<table class="table table-striped">
+			<div class="panel panel-primary" style="margin-left: 20%">
+				<div class="pannel panel-heading">Chercher Contrat</div>
+				<div class="panel-body">
+					<form class="form-inline" th:action="@{consulterContrat}"
+						method="get">
+						<a th:href="@{formcontrat}" class="btn btn-primary">Ajouter
+							Contrat</a> <input type="text" name="mc" class="form-control"
+							placeholder="Reference" th:value="${mc}" />
+						<button class="btn btn-primary">Chercher</button>
+						<a th:href="@{/formDetails}" class="btn btn-primary"
+							style="margin-left: 35%">Ajouter_Detail</a>
+					</form>
+
+				</div>
+			</div>
+			<!-- </div> -->
+			<!-- <div class="col-md-6"> -->
+			<div class="panel panel-primary" style="margin-left: 20%">
+				<div class="pannel panel-heading">Liste Contrat</div>
+				<div class="panel-body">
+					<table class="table table-striped">
 						<tr>
 							<!-- <th>Reference</th> -->
 							<th>Date_debut</th>
@@ -161,37 +48,34 @@ layout:decorator="template">
 							<th>Supprimer</th>
 
 						</tr>
-					
-					
-					
-					<tr th:each="c:${listContrats}">
-						<!-- <td th:text="${c.referance}"></td> -->
-						<td th:text="${c.dateDebut}"></td>
-						<td th:text="${c.dateFin}"></td>
-					     <!-- <td th:text="${c.vehicule.typeService}"></td> -->
-						<td th:text="${c.assure.prenomAssure+' '+c.assure.nomAssure}"></td>
-						<td th:text="${c.souscripteur.prenomSouscripteur+' '+c.souscripteur.nomSouscripteur}"></td>
-						<td th:text="${c.apporteur?.prenomApp+' '+c.apporteur?.nomApp}"></td>
-						<td><a
-							th:href="@{editupdate(idContrat=${c.idContrat})}"
-							class="btn btn-primary">Edit</a></td>
-						<td><a onclick="return confirm('Etes vous sure?')"
-							th:href="@{deletecontrat(idContrat=${c.idContrat},
+
+						<tr th:each="c:${listContrats}">
+							<!-- <td th:text="${c.referance}"></td> -->
+							<td th:text="${c.dateDebut}"></td>
+							<td th:text="${c.dateFin}"></td>
+							<!-- <td th:text="${c.vehicule.typeService}"></td> -->
+							<td th:text="${c.assure.prenomAssure+' '+c.assure.nomAssure}"></td>
+							<td
+								th:text="${c.souscripteur.prenomSouscripteur+' '+c.souscripteur.nomSouscripteur}"></td>
+							<td th:text="${c.apporteur?.prenomApp+' '+c.apporteur?.nomApp}"></td>
+							<td><a th:href="@{editupdate(idContrat=${c.idContrat})}"
+								class="btn btn-primary">Edit</a></td>
+							<td><a onclick="return confirm('Etes vous sure?')"
+								th:href="@{deletecontrat(idContrat=${c.idContrat},
 page=${pageCourante},size=${size},mc=${mc})}"
-							class="btn btn-primary">Delete</a></td>
-					</tr>
-				</table>
-				<ul class="nav nav-pills">
-					<li th:class="${pageCourante}==${status.index}?'active':''"
-						th:each="pa,status:${pages}"><a
-						th:href="@{/consulterContrat(page=${status.index},size=${size},mc=${mc})}"
-						th:text="${status.index}"></a></li>
-				</ul>
-		 </div>
-		 </div>
-		 </div>
-		 </div>
-	<!-- </div> -->
+								class="btn btn-primary">Delete</a></td>
+						</tr>
+					</table>
+					<ul class="nav nav-pills">
+						<li th:class="${pageCourante}==${status.index}?'active':''"
+							th:each="pa,status:${pages}"><a
+							th:href="@{/consulterContrat(page=${status.index},size=${size},mc=${mc})}"
+							th:text="${status.index}"></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
 

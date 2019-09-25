@@ -21,22 +21,23 @@ public class DetailController {
 	private IContratService contratService;
 	@Autowired
 	private IGarantieService garantieService;
-	@RequestMapping(value="/formDetails",method=RequestMethod.GET)
+
+	@RequestMapping(value = "/formDetails", method = RequestMethod.GET)
 	public String ajoutDetail(Model model) {
 		model.addAttribute("detail", new Detail());
 		model.addAttribute("contrat", contratService.findAllContrat());
 		model.addAttribute("garantie", garantieService.findAllGarantie());
-		/*return "Detail";*/
+		/* return "Detail"; */
 		return "DetailGarantie";
 	}
-	
-	@RequestMapping(value="/saveDetail", method = RequestMethod.POST)
-	public String save(@ModelAttribute  @Valid Detail detail/*,BindingResult bindingResult*/) {
-		/*if(bindingResult.hasErrors())*/
-			/*return "Assure";*/
+
+	@RequestMapping(value = "/saveDetail", method = RequestMethod.POST)
+	public String save(@ModelAttribute @Valid Detail detail/* ,BindingResult bindingResult */) {
+		/* if(bindingResult.hasErrors()) */
+		/* return "Assure"; */
 		detailservice.Ajouter(detail);
-		//addEmployee(employee);
-		//return "Assure";
+		// addEmployee(employee);
+		// return "Assure";
 		return "redirect:/formDetails";
 	}
 

@@ -27,7 +27,7 @@ public class CategorieController {
 		/* if(bindingResult.hasErrors()) */
 		categorieService.AjoutCategorie(categorie);
 		return "redirect:/formcategorie";
-		
+
 	}
 
 }

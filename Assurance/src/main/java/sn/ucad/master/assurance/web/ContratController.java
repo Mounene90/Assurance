@@ -31,18 +31,17 @@ public class ContratController {
 	private IContratService contratService;
 	@Autowired
 	private IApporteurService apporteurService;
-	
+
 	@RequestMapping(value = "/consulterContrat")
 	public String index5(Model model, @RequestParam(name = "page", defaultValue = "0") int p,
 			@RequestParam(name = "size", defaultValue = "5") int s,
 			@RequestParam(name = "mc", defaultValue = "") String mc) {
-		    Page<Contrat> pagecontrat =null;
-		
-		
-		if(mc==null)
-			pagecontrat=contratService.findAllPageContrat(p, s);
-			else
-		       pagecontrat= contratService.chercherContrats("%"+mc+"%", new PageRequest(p,s));
+		Page<Contrat> pagecontrat = null;
+
+		if (mc == null)
+			pagecontrat = contratService.findAllPageContrat(p, s);
+		else
+			pagecontrat = contratService.chercherContrats("%" + mc + "%", new PageRequest(p, s));
 		model.addAttribute("listContrats", pagecontrat.getContent());
 		/* model.addAttribute("listSouscripteurs", pagesouscripteurs.getContent()); */
 		int[] pages = new int[pagecontrat.getTotalPages()];
@@ -50,30 +49,32 @@ public class ContratController {
 		model.addAttribute("size", s);
 		model.addAttribute("pageCourante", p);
 		model.addAttribute("mc", mc);
-		/*return "Contrat";*/
+		/* return "Contrat"; */
 		return "Contrats";
 	}
-	@RequestMapping(value="/formcontrat",method=RequestMethod.GET)
+
+	@RequestMapping(value = "/formcontrat", method = RequestMethod.GET)
 	public String ajoutcont(Model model) {
 		model.addAttribute("contrat", new Contrat());
 		model.addAttribute("service", iservice.findAllService());
 		model.addAttribute("souscripteur", souscripteurService.findAllSouscripteur());
 		model.addAttribute("assure", assureService.findAllAssure());
 		model.addAttribute("apporteur", apporteurService.findAllApporteur());
-		//addAttribute("service" iservice.listeService());
+		// addAttribute("service" iservice.listeService());
 		return "Contrat";
 	}
-	
-	@RequestMapping(value="/saveContrat", method = RequestMethod.POST)
-	public String saveContrat(@ModelAttribute  @Valid Contrat contrat /*,BindingResult bindingResult*/) {
-		/*if(bindingResult.hasErrors())*/
-			/*return "Souscripteur";*/
-		//Service service=consulterService(idService);
-		//if(service instanceof Vehicule)
-		   contratService.AjoutContrat(contrat);
-			return "redirect:/formcontrat";
-		/*return "Confirmation";*/
+
+	@RequestMapping(value = "/saveContrat", method = RequestMethod.POST)
+	public String saveContrat(@ModelAttribute @Valid Contrat contrat /* ,BindingResult bindingResult */) {
+		/* if(bindingResult.hasErrors()) */
+		/* return "Souscripteur"; */
+		// Service service=consulterService(idService);
+		// if(service instanceof Vehicule)
+		contratService.AjoutContrat(contrat);
+		return "redirect:/formcontrat";
+		/* return "Confirmation"; */
 	}
+
 	@RequestMapping(value = "/deletecontrat", method = RequestMethod.GET)
 	public String delete(int idContrat, String mc, int page, int size) {
 

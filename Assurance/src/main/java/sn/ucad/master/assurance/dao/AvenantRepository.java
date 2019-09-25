@@ -6,12 +6,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import sn.ucad.master.assurance.bo.Habitation;
+import sn.ucad.master.assurance.bo.Avenant;
 
-
-public interface HabitationRepository extends JpaRepository<Habitation, Integer>{
-	@Query("select h from Habitation  h where h.adresse like:x")
-	public Page<Habitation> chercher(@Param("x")String mc ,Pageable pageable);
+public interface AvenantRepository extends JpaRepository<Avenant, Integer> {
 	
+
 
 }
