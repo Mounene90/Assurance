@@ -108,7 +108,7 @@ layout:decorator="template">
 							<td th:text="${ap.adresseApp}"></td>
 							<td th:text="${ap.telephoneApp}"></td>
 							<td th:text="${ap.mailApp}"></td>
-							<td><a th:href="@{editupdate(codeApp=${ap.codeApp})}"
+							<td><a th:href="@{editupdateapp(codeApp=${ap.codeApp})}"
 								class="btn btn-primary">Edit</a></td>
 							<td><a onclick="return confirm('Etes vous sure?')"
 								th:href="@{delete(codeApp=${ap.codeApp},

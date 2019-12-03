@@ -30,9 +30,9 @@ public class ApporteurServiceImpl implements IApporteurService {
 	}
 
 	@Override
-	public Apporteur findApporteurById(String code_App) {
+	public Apporteur findApporteurById(String codeApp) {
 		// TODO Auto-generated method stub
-		return apporteurRepository.findOne(code_App);
+		return apporteurRepository.findOne(codeApp);
 	}
 
 	@Override
@@ -51,6 +51,7 @@ public class ApporteurServiceImpl implements IApporteurService {
 	@Override
 	public void deleteApporteur(String code) {
 		// TODO Auto-generated method stub
+		apporteurRepository.delete(code);
 		
 	}
 

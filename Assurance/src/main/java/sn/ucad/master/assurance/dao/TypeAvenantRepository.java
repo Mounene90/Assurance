@@ -13,8 +13,4 @@ public interface TypeAvenantRepository extends JpaRepository<TypeAvenant, Intege
 	@Query("select typav from TypeAvenant typav where typav.libelleType like:x")
 	public Page<TypeAvenant> chercherTypeAvenant(@Param("x")String mc ,Pageable pageable);
 
-	//public TypeAvenant findOne(@Param("x")String libelle);
-
-	//public void delete(String libelle);
-
 }

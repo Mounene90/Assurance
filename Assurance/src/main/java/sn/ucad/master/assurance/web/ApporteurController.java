@@ -45,6 +45,14 @@ public class ApporteurController {
 		model.addAttribute("apporteur", new Apporteur());
 		return "formApporteur";
 	}
+	
+	@RequestMapping(value = "/editupdateapp", method = RequestMethod.GET)
+	public String editupdate(Model model, String codeApp) {
+		Apporteur app = apporteurService.findApporteurById(codeApp);
+		model.addAttribute("apporteur", app);
+		return "EditApporteur";
+	}
+
 
 	@RequestMapping(value = "/saveApporteur", method = RequestMethod.POST)
 	public String save(@ModelAttribute @Valid Apporteur apporteur/* ,BindingResult bindingResult */) {
