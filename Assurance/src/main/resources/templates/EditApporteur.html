@@ -1,0 +1,79 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="template">
+<head>
+<meta charset="utf-8" />
+<title>EditApporteur</title>
+<link rel="stylesheet" type="text/css"
+	href="../static/css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}" />
+<script type="text/javascript" src="../static/js/scripts.js"
+	th:src="@{js/scripts.js}"></script>
+</head>
+<body>
+
+<div  layout:fragment="content">
+ <div class="col-md-6">
+		<div class="panel panel-primary" style="margin-bottom: 10%; margin-top: 3%; margin-left: 60%; margin-right: 10%; width: 100%">
+                    <div class="panel-heading"><h1 class="text-center">Modifier Apporteur</h1></div>
+			<div class="panel-body">
+				<form th:action="@{saveApporteur}" method="post" modelAttribut="apporteur" class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="nomApp">Nom:</label>
+                                                <div class="col-sm-10">
+                                                <input class="form-control" id="nomApp" placeholder="nom Apporteur"
+							type="text" name="nomApp"
+							th:value="${apporteur.nomApp}" /> 
+							<span class="red" th:errors="${apporteur.nomApp}"></span>
+                                                </div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="prenomApp">Prenom:</label>
+                                                <div class="col-sm-10">
+                                                <input class="form-control" id="prenomApp" placeholder="prenom Apporteur"
+							type="text" name="prenomApp"
+							th:value="${apporteur.prenomApp}" /> <span class="red"
+							th:errors="${apporteur.prenomApp}"></span>
+                                                </div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="adresseApp">Adresse:</label> 
+                                                <div class="col-sm-10">
+                                                <input class="form-control" id="adresseApp" placeholder="adresse Apporteur"
+							type="text" name="adresseApp"
+							th:value="${apporteur.adresseApp}" />
+                                                </div>
+
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="telephoneApp">Telephone:</label> 
+                                                <div class="col-sm-10">
+                                                <input class="form-control" id="telephoneApp" placeholder="telephoneSouscripteur"
+							type="text" name="telephoneApp"
+							th:value="${apporteur.telephoneApp}" />
+                                                </div>
+
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="mailApp">Email:</label> 
+                                                <div class="col-sm-10">
+                                                <input class="form-control" id="mailApp" placeholder="Email_App"
+							type="text" name="mailApp"
+							th:value="${apporteur.mailApp}" />
+                                                </div>
+
+					</div>
+					
+                                            
+                                    <div class="text-center">
+						<button type="submit" class="btn btn-primary">Enregistrer</button>
+						<button type="reset" class="btn btn-primary">Annuler</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	</div>
+</body>
+</html>
